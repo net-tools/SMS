@@ -43,7 +43,7 @@ class ApiGateway extends \Nettools\SMS\SMSGateway {
 	 * @param string $nostop 
 	 * @return int Returns the number of messages sent, usually the number of values of $to parameter (a multi-sms message count as 1 message)
 	 */
-	function send($msg, $sender, $to, $nostop = true)
+	function send($msg, $sender, array $to, $nostop = true)
 	{
 		$service = $this->config->service;
 		$ret = $this->api->post("/sms/$service/jobs", array(

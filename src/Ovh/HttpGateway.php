@@ -52,7 +52,7 @@ class HttpGateway extends \Nettools\SMS\SMSGateway {
 	 * @return int Returns the number of messages sent, usually the number of values of $to parameter (a multi-sms message count as 1 message)
 	 * @throws \Nettools\SMS\SMSException
 	 */
-	function send($msg, $sender, $to, $nostop = true)
+	function send($msg, $sender, array $to, $nostop = true)
 	{
 		$url = self::URL . '?&account=' . $this->config->account . '&login=' . $this->config->login . '&password=' . $this->config->password . '&contentType=text/json';
 		$rq = $url . '&from=' . urlencode($sender) . '&noStop=' . ($nostop ? '1':'0') . '&to=' . implode(',', $to) . '&message=' . urlencode($msg);

@@ -35,6 +35,7 @@ class EmailGateway extends \Nettools\SMS\SMSGateway {
 	 * - account : ovh account
 	 * - login : ovh sms user
 	 * - password : ovh sms password
+	 * - emailSender : email address the email to Ovh gateway is sent from
 	 */
 	public function __construct(\Nettools\Mailing\Mailer $mailer, AbstractConfig $config)
 	{
@@ -54,7 +55,7 @@ class EmailGateway extends \Nettools\SMS\SMSGateway {
 	 * @return int Returns the number of messages sent, usually the number of values of $to parameter (a multi-sms message count as 1 message)
 	 * @throws \Nettools\SMS\SMSException
 	 */
-	function send($msg, $sender, $to, $nostop = true)
+	function send($msg, $sender, array $to, $nostop = true)
 	{
 		// prepare text/plain part
 		$email = \Nettools\Mailing\Mailer::createText($msg);
@@ -62,7 +63,7 @@ class EmailGateway extends \Nettools\SMS\SMSGateway {
 		$subject = 'Account=' . $this->config->account . ':Login=' . $this->config->login . ':Password=' . $this->config->password;
 		$subject .= ':From=' . $sender . ':NoStop=' . ($nostop ? '1':'0') . 'To=' . implode(',', $to);
 
-		if ( $ret = $this->mailer->sendmail($email, $expmail, self::EMAIL, $subject, true) )
+		if ( $ret = $this->mailer->sendmail($email, $this->config->emailSender, self::EMAIL, $subject, true) )
 			throw new SMSException('Error when sending SMS through OVH email gateway : ' . $ret);
 		else
 			return count($to);
