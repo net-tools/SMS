@@ -19,7 +19,7 @@ interface SMSGateway {
 	 * @param string $nostop Nostop clause
 	 * @return int Returns the number of messages sent, usually the number of values of $to parameter (a multi-sms message count as 1 message)
 	 */
-	function send($msg, $sender, $to, $nostop = true);
+	function send($msg, $sender, array $to, $nostop = true);
 }
 
 
