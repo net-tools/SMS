@@ -31,7 +31,7 @@ class HttpGateway implements \Nettools\SMS\SMSGateway {
 	 * @param \Nettools\Misc\AbstractConfig $config Config object
 	 *
 	 * $config must have values for :
-	 * - account : ovh account
+	 * - service : ovh account
 	 * - login : ovh sms user
 	 * - password : ovh sms password
 	 */
@@ -54,7 +54,7 @@ class HttpGateway implements \Nettools\SMS\SMSGateway {
 	 */
 	function send($msg, $sender, array $to, $nostop = true)
 	{
-		$url = self::URL . '?&account=' . $this->config->account . '&login=' . $this->config->login . '&password=' . $this->config->password . '&contentType=text/json';
+		$url = self::URL . '?&account=' . $this->config->service . '&login=' . $this->config->login . '&password=' . $this->config->password . '&contentType=text/json';
 		$rq = $url . '&from=' . urlencode($sender) . '&noStop=' . ($nostop ? '1':'0') . '&to=' . implode(',', $to) . '&message=' . urlencode($msg);
 		$ret = file_get_contents($rq);
 		

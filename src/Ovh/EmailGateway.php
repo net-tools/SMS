@@ -32,7 +32,7 @@ class EmailGateway implements \Nettools\SMS\SMSGateway {
 	 * @param \Nettools\Misc\AbstractConfig $config Config object
 	 *
 	 * $config must have values for :
-	 * - account : ovh account
+	 * - service : ovh account
 	 * - login : ovh sms user
 	 * - password : ovh sms password
 	 * - emailSender : email address the email to Ovh gateway is sent from
@@ -60,7 +60,7 @@ class EmailGateway implements \Nettools\SMS\SMSGateway {
 		// prepare text/plain part
 		$email = \Nettools\Mailing\Mailer::createText($msg);
 		
-		$subject = 'Account=' . $this->config->account . ':Login=' . $this->config->login . ':Password=' . $this->config->password;
+		$subject = 'Account=' . $this->config->service . ':Login=' . $this->config->login . ':Password=' . $this->config->password;
 		$subject .= ':From=' . $sender . ':NoStop=' . ($nostop ? '1':'0') . 'To=' . implode(',', $to);
 
 		if ( $ret = $this->mailer->sendmail($email, $this->config->emailSender, self::EMAIL, $subject, true) )
