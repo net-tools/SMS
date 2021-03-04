@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nettools\SMS;
+namespace Nettools\SMS\Ovh;
 
 
 use \Nettools\Core\Misc\AbstractConfig;
@@ -11,7 +11,7 @@ use \Nettools\Core\Misc\AbstractConfig;
 /**
  * Classe to send SMS through OVH api
  */
-class OvhApiGateway extends SMSGateway {
+class ApiGateway extends \Nettools\SMS\SMSGateway {
 
 	protected $api;
 	protected $config;
@@ -39,7 +39,7 @@ class OvhApiGateway extends SMSGateway {
 	 *
 	 * @param string $msg 
 	 * @param string $sender
-	 * @param string[] $to
+	 * @param string[] $to Array of recipients, numbers in international format +xxyyyyyyyyyyyyy (ex. +33612345678)
 	 * @param string $nostop 
 	 * @return int Returns the number of messages sent, usually the number of values of $to parameter (a multi-sms message count as 1 message)
 	 */

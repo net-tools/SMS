@@ -6,7 +6,7 @@ namespace Nettools\SMS;
 
 
 /**
- * Classe pour envoi de SMS
+ * Interface for sending SMS through several gateways
  */
 interface SMSGateway {
 
