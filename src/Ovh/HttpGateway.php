@@ -13,7 +13,7 @@ use \Nettools\SMS\SMSException;
 /**
  * Classe to send SMS through OVH Http request
  */
-class HttpGateway extends \Nettools\SMS\SMSGateway {
+class HttpGateway implements \Nettools\SMS\SMSGateway {
 
 	protected $config;
 	

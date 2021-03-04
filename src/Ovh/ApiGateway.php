@@ -11,7 +11,7 @@ use \Nettools\Core\Misc\AbstractConfig;
 /**
  * Classe to send SMS through OVH api
  */
-class ApiGateway extends \Nettools\SMS\SMSGateway {
+class ApiGateway implements \Nettools\SMS\SMSGateway {
 
 	protected $api;
 	protected $config;
