@@ -62,7 +62,7 @@ class HttpGateway implements \Nettools\SMS\SMSGateway {
 		// decode http response
 		if ( $json = json_decode($ret) )
 			if ( ($json->status >= 100) && ($json->status < 200) )
-				return count($json->SmsIds);
+				return count($json->smsIds);
 			else
 				throw new SMSException("Error {$json->status} when sending SMS : " . $json->message);
 		else
