@@ -61,7 +61,7 @@ class EmailGateway implements \Nettools\SMS\SMSGateway {
 		$email = \Nettools\Mailing\Mailer::createText($msg);
 		
 		$subject = 'Account=' . $this->config->service . ':Login=' . $this->config->login . ':Password=' . $this->config->password;
-		$subject .= ':From=' . $sender . ':NoStop=' . ($nostop ? '1':'0') . 'To=' . implode(',', $to);
+		$subject .= ':From=' . $sender . ':NoStop=' . ($nostop ? '1':'0') . ':To=' . implode(',', $to);
 
 		if ( $ret = $this->mailer->sendmail($email, $this->config->emailSender, self::EMAIL, $subject, true) )
 			throw new SMSException('Error when sending SMS through OVH email gateway : ' . $ret);
