@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nettools\SMS;
+namespace Nettools\SMS\Ovh;
 
 
 use \Nettools\Core\Misc\AbstractConfig;
