@@ -42,14 +42,6 @@ The APIs supported are : AWS and OVH.
 
 
 
-
-## API Reference
-
-To read the entire API reference, please refer to the PHPDoc here :
-https://nettools.ovh/api-reference/net-tools/namespaces/nettools-sms.html
-
-
-
 ## PHPUnit
 
 To test with PHPUnit, point the -c configuration option to the /phpunit.xml configuration file.
