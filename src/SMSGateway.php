@@ -19,7 +19,7 @@ interface SMSGateway {
 	 * @param bool $transactional True if message sent is transactional ; otherwise it's promotional)
 	 * @return int Returns the number of messages sent, usually the number of values of $to parameter (a multi-sms message count as 1 message)
 	 */
-	function send($msg, $sender, array $to, $nostop = true);
+	function send($msg, $sender, array $to, $transactional = true);
 	
 	
 		
